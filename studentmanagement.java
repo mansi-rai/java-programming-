@@ -1,93 +1,38 @@
-abstract class student                                            //abstract class
-{ 
-    protected String sName;
-    boolean isExists;
+package com.student.mgmt.main;
 
-    // Event class parameterized constructor
-    public student(String sName) {
-        this.sName = sName;                                //using this keyword to give reference 
-        this.isExists=false;
-    }
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Scanner;
 
-    public final String getsName() {                                      //using final keyword
-        return sName;
-    }
+public class studentManagement {
 
-    abstract boolean getSponsership();
+	public static void main(String[] args) {
+		//Displaying Command-line arguments
+		System.out.println("Main invoked with :"+args.length +" ARGUMENTS");
+		for(String arg:args) {
+			System.out.println(arg);
+		}
+		String months[] = Util.getMonths();
 
-}
+		Calendar calendar = Calendar.getInstance();
+		//System.out.println("**************************************");
+		int count1 = 4, count2 = 4, count3 = 4, count4 = 4, count5 = 4, count6 = 4;
+		System.out.println("\n**************************************");
+		System.out.println("**************************************");
+		System.out.print("Date: " + months[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.YEAR));
+		System.out.println("\t\t\t\t\t\tTime: " + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND));
 
-// derived class one
-class office extends student
-
-{
-
-    public office(String sName) {
-        // calling student class constructor
-        super(sName);
-    }
-
-
-    public boolean getSponsership() {
-        if (getsName() == "admissionoffice") {
-            isExists=true;
-        }
-        return isExists;
-    }
-	
-} 
-
-//derived class two 
-class Sports extends student
-{ 
-
-    public Sports(String sName) {
-        
-        super(sName);
-    }
-
-   
-    public boolean getSponsership() {
-        if (getsName() == "Anuj raj" || getsName()=="feemanagement") {
-            isExists=true;
-        }
-        return isExists; 
-    }
-	
-} 
-
-// Driver class 
-public class studentmanagement
-{ 
-	public static void main(String[] args) 
-    {  
-        String name="Check the fee and the Number of student under departement.";                                            //String class
-        System.out.println("..................................................................");
-        System.out.println(name);
-        System.out.println(".................................................................."+"\n");
-		// creating office object 
-		student s1 = new office("admissionoffice"); 
+		//ArryList to hold student fee Data
+		//Generic List to hold college objects
+		List<college> college = new ArrayList<college>();
 		
-		// creating delivery object 
-		student s2 = new Sports("feemanagement staff"); 
-        
-        StringBuffer s = new StringBuffer("Official");                                //StringBuffer class
-        s.append(" fee is managed by ");
-        s.append(s1.getsName());
-        s.append(":- ");
-        s.append(s1.getSponsership());
-		System.out.println(s);
-		System.out.println("5 Official Staffs under department." + "\n");
-        
-        
-        StringBuffer st = new StringBuffer("Sports"); 
-        st.append(" admission is feemanagement office by ");
-        st.append(s2.getsName());
-        st.append(":- ");
-        st.append(s2.getSponsership());
-		System.out.println(st);
-		System.out.println("2 staff under admission fee management department and 25 students.");
-		 
+		//Generic List to hold student objects
+		List<student> students = new ArrayList<student>();
+		//Generic List to hold fee objects
+		List<fee> feeList = new ArrayList<fee>();
+		List<name> studentList = new ArrayList<name>();
+		List<class> classList = new ArrayList<class>();
+		List<course> courseList = new ArrayList<course>();
 		
-	} 
-} 
+                
